@@ -1,1 +1,297 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090b">
+<title>Start of Harvest</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #08090b;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  height: 75px;
+  padding: 0 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #22252a;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.logo span { color: #c6f36b; }
+
+.status {
+  color: #c6f36b;
+  font-size: 12px;
+}
+
+main {
+  width: 90%;
+  max-width: 850px;
+  margin: auto;
+  padding: 75px 0;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #c6f36b;
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  letter-spacing: -4px;
+  margin: 0 0 20px;
+}
+
+.description {
+  color: #90959e;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+/* Solana staking artwork */
+.art {
+  position: relative;
+  height: 280px;
+  max-width: 680px;
+  margin: auto;
+  border: 1px solid #292d33;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at center, #26331d 0%, #101511 45%, #101216 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.art:before, .art:after {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border: 1px solid #c6f36b15;
+  border-radius: 50%;
+}
+
+.art:after {
+  width: 320px;
+  height: 320px;
+}
+
+.sol {
+  position: relative;
+  z-index: 2;
+  width: 110px;
+  height: 110px;
+  border-radius: 30px;
+  background: #101216;
+  border: 1px solid #424a3b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 0 70px #a5e94c35;
+}
+
+.bar {
+  width: 55px;
+  height: 10px;
+  border-radius: 4px;
+  transform: skewX(-25deg);
+}
+
+.bar:nth-child(1) { background: #a36bf0; }
+.bar:nth-child(2) { background: #6ce3b4; }
+.bar:nth-child(3) { background: #c6f36b; }
+
+.staking-label {
+  position: absolute;
+  bottom: 25px;
+  color: #c6f36b;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.timer-title {
+  color: #999fa9;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin: 38px 0 16px;
+}
+
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 680px;
+  margin: auto;
+}
+
+.unit {
+  background: #121519;
+  border: 1px solid #292d33;
+  border-radius: 15px;
+  padding: 22px 5px;
+}
+
+.number {
+  font-size: clamp(30px, 6vw, 53px);
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  color: #f5f5f5;
+}
+
+.unit small {
+  display: block;
+  color: #858b95;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+
+.note {
+  margin-top: 25px;
+  color: #858b95;
+  font-size: 12px;
+}
+
+footer {
+  border-top: 1px solid #22252a;
+  padding: 25px;
+  text-align: center;
+  color: #666d77;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+@media(max-width:480px) {
+  main { padding-top: 60px; }
+  .timer { gap: 6px; }
+  .unit { padding: 18px 2px; }
+  .unit small { font-size: 8px; letter-spacing: 1px; }
+  .art { height: 220px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><span>✳</span> HARVEST</div>
+  <div class="status">● COUNTDOWN LIVE</div>
+</header>
+
+<main>
+
+  <div class="eyebrow">SOMETHING IS GROWING</div>
+
+  <h1>Start of harvest</h1>
+
+  <p class="description">
+    The countdown has begun. A new chapter is just around the corner.
+  </p>
+
+  <div class="art">
+    <div class="sol">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="staking-label">SOLANA STAKING</div>
+  </div>
+
+  <div class="timer-title">TIME REMAINING</div>
+
+  <div class="timer">
+    <div class="unit">
+      <div class="number" id="days">000</div>
+      <small>DAYS</small>
+    </div>
+
+    <div class="unit">
+      <div class="number" id="hours">00</div>
+      <small>HOURS</small>
+    </div>
+
+    <div class="unit">
+      <div class="number" id="minutes">00</div>
+      <small>MINUTES</small>
+    </div>
+
+    <div class="unit">
+      <div class="number" id="seconds">00</div>
+      <small>SECONDS</small>
+    </div>
+  </div>
+
+  <p class="note" id="message">
+    Counting down to November 30, 2026
+  </p>
+
+</main>
+
+<footer>
+  MADE FOR THE MOMENT · 2026
+</footer>
+
+<script>
+const target = new Date("2026-11-30T00:00:00");
+
+function updateTimer() {
+  let diff = target.getTime() - Date.now();
+
+  if (diff <= 0) {
+    document.getElementById("days").textContent = "000";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+    document.getElementById("message").textContent =
+      "THE HARVEST HAS BEGUN!";
+    return;
+  }
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+
+  document.getElementById("days").textContent =
+    String(days).padStart(3, "0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
+
